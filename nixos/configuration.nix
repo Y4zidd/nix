@@ -95,6 +95,8 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "yazid";
 
+  # programs.dolphin.enable = true;
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -158,6 +160,10 @@
 		waypaper
                 xwayland
 		hyprpaper
+
+		# tooltambahan
+		alacritty
+		dunst
   ];
 
   # desktop portals

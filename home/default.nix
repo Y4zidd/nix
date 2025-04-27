@@ -2,10 +2,10 @@
 {
   imports = [
     ./hyprland
-    # ./nixvim
+    ./nixvim
     ./waybar
-    # ./zsh
-    # ./kitty
+		./zsh
+		./kitty
   ];
 
   home = {
@@ -18,6 +18,8 @@
 			# devenv
 			# jdk21_headless
 			# netbeans
+			zsh
+			# dolphin
 
 			# python
 			# python313Packages.mypy
@@ -76,8 +78,8 @@
       # clip
 
       # i fw w these
-      # kitty
-      # kitty-themes
+      kitty
+      kitty-themes
       alacritty
       pfetch
       firefox
@@ -95,12 +97,15 @@
       # additional utils
       atool
       httpie
+      tmux
 
       # c/c++
       gcc
       cmake
       pkg-config
       dust
+      dolphin
+      # kdePackages.dolphin
       dolphin
 
 			# discord
@@ -131,16 +136,17 @@
       enable = true;
       userName = "Y4zidd";
       userEmail = "dahlahg7@gmail.com";
+      # init.defaultBranch = "main";
     };
 
     bash = {
       enable = true;
-      # shellAliases = {
-      #  ll = "ls -l";
-      #  nixrbs = "sudo nixos-rebuild switch --flake ~/system#dosed";
-      #  nixrbt = "sudo nixos-rebuild test --flake ~/system#dosed";
-      #  nixrbb = "sudo nixos-rebuild boot --flake ~/system#dosed";
-      # }; #shellAliases
+      shellAliases = {
+        ll = "ls -l";
+        nixrbs = "sudo nixos-rebuild switch --flake ~/system#dosed";
+        nixrbt = "sudo nixos-rebuild test --flake ~/system#dosed";
+        nixrbb = "sudo nixos-rebuild boot --flake ~/system#dosed";
+       }; #shellAliases
     }; # bash
   };  # programs
 }
