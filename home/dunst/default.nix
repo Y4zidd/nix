@@ -1,7 +1,7 @@
 {
   services.dunst = {
     enable = true;
-    systemd.enable = true;
+    # systemd.enable = true;
     settings = {
       global = {
         monitor = 0;

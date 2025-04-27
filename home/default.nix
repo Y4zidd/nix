@@ -6,6 +6,9 @@
     ./waybar
 		./zsh
 		./kitty
+		./alacritty
+		# ./starship/default.nix
+		./dunst
   ];
 
   home = {
@@ -98,6 +101,7 @@
       atool
       httpie
       tmux
+      starship
 
       # c/c++
       gcc
@@ -107,6 +111,7 @@
       dolphin
       # kdePackages.dolphin
       dolphin
+      hyprshot
 
 			# discord
 			# php
@@ -127,7 +132,8 @@
 		    " ,~/Pictures/wallpaper/nixos-wallpaper-catppuccin-mocha.png"
 		];
 	};
-  }; 
+  };
+  
 
   programs = {
     home-manager.enable = true;
@@ -138,6 +144,37 @@
       userEmail = "dahlahg7@gmail.com";
       # init.defaultBranch = "main";
     };
+
+    starship = {
+  	enable = true;
+  	settings = {
+    	add_newline = true;
+    	command_timeout = 1300;
+    	scan_timeout = 50;
+    	format = "[$username]($style)$directory\n$os$character";
+    	character = {
+      		success_symbol = "[ ➜ ](bold green)";
+      		error_symbol = "[ ✗ ](bold red)";
+    	};
+      os = {
+      disabled = false;  # Pastikan di-enable
+      format = "[$symbol]($style)";
+      style = "bold white";
+      symbols = {
+        NixOS = "❄️ ";    # Logo NixOS
+        Arch = "🐧 ";     # Logo Arch
+        Ubuntu = " ";    # Logo Ubuntu (Nerd Font)
+        Windows = " ";   # Logo Windows
+      };
+    };
+    username = {
+     	disabled = false;
+	show_always = true;
+	style_user = "bold blue";
+	format = "[$user ]($style)";
+    };
+   };
+};
 
     bash = {
       enable = true;

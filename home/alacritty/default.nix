@@ -26,13 +26,13 @@
         };
       };
 
-      keyboard.bindings = [
-        {
-          action = "CreateNewWindow";
-          key = "N";
-          mods = ["Control" "Shift"];
-        }
-      ];
+      # keyboard.bindings = [
+      #  {
+      #    action = "CreateNewWindow";
+      #    key = "N";
+      #    mods = ["Control" "Shift"];
+      #  }
+      #];
 
       window = {
         dynamic_padding = true;
