@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/suspend-and-hibernate.nix
     ];
 
   # Bootloader.
@@ -21,7 +22,7 @@
   boot.loader.grub.useOSProber = true;
 
   nix.settings.experimental-features = [ "nix-command flakes" ];
-  boot.kernelParams = [ "acpi_backlight=video"];
+  # boot.kernelParams = [ "acpi_backlight=video"];
 
   networking = {
 		hostName = "nixos"; # Define your hostname.
@@ -54,6 +55,10 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  # zsh active
+  # system.userActivationScripts.zshrc = "touch .zshrc";
+  # users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;

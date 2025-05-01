@@ -15,7 +15,9 @@
 		};
 		shellAliases = {
 			ll = "ls -l";
-			# nixrbs = "sudo nixos-rebuild switch --flake #yazid";
+			rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#yazid";
+			yazid = "pfetch";
+			pohon = "tree";
 			# nixrbt = "sudo nixos-rebuild test --flake ~/nix#dosed";
 			# nixrbb = "sudo nixos-rebuild boot --flake ~/nix#dosed";
 			# nixconf = "cd ~/nix/nixos && nvim configuration.nix";
