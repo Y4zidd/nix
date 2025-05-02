@@ -56,10 +56,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # zsh active
-  # system.userActivationScripts.zshrc = "touch .zshrc";
-  # users.defaultUserShell = "/run/current-system/sw/bin/zsh";
-
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -169,7 +165,20 @@
 		# tooltambahan
 		alacritty
 		dunst
+		zsh
   ];
+
+  programs.zsh.enable = true;
+  
+  users.users.yazid = {
+    shell = pkgs.zsh;  # Pastikan paket `zsh` sudah di systemPackages
+  };
+
+  # zsh as default shell
+  # users.defaultUserShell = pkgs.zsh;
+  # environment.shells = with pkgs; [ zsh ];
+  # users.users.yazid.ignoreShellProgramCheck = true;
+  # users.users.root.ignoreShellProgramCheck = true;
 
   # desktop portals
   xdg.portal.enable = true;

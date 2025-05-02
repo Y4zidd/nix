@@ -9,6 +9,7 @@
 		./alacritty
 		# ./starship/default.nix
 		./dunst
+		#./firefox
   ];
 
   home = {
@@ -22,7 +23,9 @@
 			# jdk21_headless
 			# netbeans
 			zsh
+			# stylix
 			# dolphin
+			# ciscoPacketTracer8
 
 			# python
 			# python313Packages.mypy
@@ -123,6 +126,7 @@
 		};
   };
 
+
   services.hyprpaper = {
 	enable = true;
 	settings = {
@@ -134,11 +138,6 @@
 		];
 	};
   };
-
-  # users.defaultUserShell = pkgs.zsh;
-
-  programs.zsh.enable = true;
-  
 
   programs = {
     home-manager.enable = true;
