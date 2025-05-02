@@ -10,11 +10,19 @@
 		# ./starship/default.nix
 		./dunst
 		#./firefox
+		#./rofi
   ];
 
   home = {
     username = "yazid";
     homeDirectory = "/home/yazid";
+
+    # rofi configuration
+    file = {
+	".config/rofi".source = ./rofi;
+        ".local/share/rofi/themes".source = ./local/share/rofi/themes;
+     };
+     
 		stateVersion = "24.05";
 		packages = with pkgs; [
 			# java
