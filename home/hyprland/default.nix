@@ -113,14 +113,14 @@
 			"$fileManager" = "dolphin";
 			"$menu" = "rofi -show drun -show-icons";
 			"$browser" = "firefox";
-
+			"$powermenu" = "sh $HOME/.config/rofi/scripts/powermenu_t2";
 			"$mainMod" = "SUPER";
 
 			bind = [
 				"$mainMod, Q, exec, $terminal"
 				"$mainMod, C, killactive,"
 				"$mainMod, B, exec, $browser"
-				"$mainMod, M, exit,"
+				"$mainMod, M, exec, $powermenu"
 				"$mainMod, E, exec, $fileManager"
 				"$mainMod, V, togglefloating,"
 				"$mainMod, R, exec, $menu"
