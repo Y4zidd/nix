@@ -115,6 +115,7 @@
 			"$browser" = "firefox";
 			"$powermenu" = "sh $HOME/.config/rofi/scripts/powermenu_t2";
 			"$mainMod" = "SUPER";
+                        "$eww" = "~/.local/bin/eww open-many blur_full weather profile quote search_full disturb-icon vpn-icon home_dir screenshot power_full reboot_full lock_full logout_full suspend_full";
 
 			bind = [
 				"$mainMod, Q, exec, $terminal"
@@ -124,6 +125,7 @@
 				"$mainMod, E, exec, $fileManager"
 				"$mainMod, V, togglefloating,"
 				"$mainMod, R, exec, $menu"
+    				"$mainMod, D, exec, $eww"
 				"$mainMod, P, pseudo, # dwindle"
 				"$mainMod, J, togglesplit, # dwindle"
 
@@ -163,9 +165,9 @@
 				"$mainMod, mouse_down, workspace, e+1"
 				"$mainMod, mouse_up, workspace, e-1"
 
-				"$mainMod, PRINT, exec, hyprshot -m window"
-				", PRINT, exec, hyprshot -m output"
-				"$shiftMod, PRINT, exec, hyprshot -m region"
+				"$mainMod, PRINT, exec, hyprshot -m window -o ~/Pictures/Screenshots"
+				", PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
+				"$shiftMod, PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
 
 				"$mainMod, f, exec, bash -c \"grim -l 0 -g \\\"$(slurp)\\\" - | wl-copy\""
 				", Print, exec, bash -c \"grim -l 0 -g \\\"$(slurp)\\\"\""

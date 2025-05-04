@@ -27,8 +27,6 @@
   networking = {
 		hostName = "nixos"; # Define your hostname.
 		networkmanager.enable = true;
-		# wireless.networks."ASRAMA-NET".psk = "Asr4m@ku";
-		# networkmanager.unmanaged = [ "wlan0" ];
 	};
 
 	systemd.services.NetworkManager-wait-online.enable = false;
@@ -85,7 +83,9 @@
     #  thunderbird
     # ];
   };
-
+  
+  programs.nix-ld.enable = true;
+  
   # hyprland active
   programs.hyprland = {
       enable = true;
@@ -166,6 +166,16 @@
 		alacritty
 		dunst
 		zsh
+		
+		# rustup
+		gcc
+		rustup
+		# glib
+        	gobject-introspection
+  		pango
+		atkmm
+		cairo
+		gdk-pixbuf
   ];
 
   programs.zsh.enable = true;
@@ -174,11 +184,12 @@
     shell = pkgs.zsh;  # Pastikan paket `zsh` sudah di systemPackages
   };
 
-  # zsh as default shell
-  # users.defaultUserShell = pkgs.zsh;
-  # environment.shells = with pkgs; [ zsh ];
-  # users.users.yazid.ignoreShellProgramCheck = true;
-  # users.users.root.ignoreShellProgramCheck = true;
+  # i hate fckg this country
+  networking.extraHosts =
+  ''
+    151.101.41.140 www.reddit.com
+  '';
+ 
 
   # desktop portals
   xdg.portal.enable = true;

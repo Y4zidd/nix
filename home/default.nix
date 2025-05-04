@@ -11,16 +11,20 @@
 		./dunst
 		#./firefox
 		#./rofi
+		#./cisco
+		./env
   ];
 
   home = {
     username = "yazid";
     homeDirectory = "/home/yazid";
 
-    # rofi configuration
+    # rofi and eww configuration
     file = {
+        ".config/eww".source = ./eww;
 	".config/rofi".source = ./rofi;
         ".local/share/rofi/themes".source = ./local/share/rofi/themes;
+	".local/bin".source = ./local/bin;
      };
      
 		stateVersion = "24.05";
@@ -124,6 +128,18 @@
       dolphin
       hyprshot
       tree
+      eww
+      gtk3
+      cairo
+      pango
+      atk
+      gdk-pixbuf
+      glib
+      libdbusmenu-gtk3
+      wayland
+      cargo
+      rustc
+      # rustup
 
 			# discord
 			# php
@@ -155,6 +171,12 @@
       userName = "Y4zidd";
       userEmail = "dahlahg7@gmail.com";
       # init.defaultBranch = "main";
+    };
+    
+    direnv = {
+      enable = true;
+     # enableBashIntegration = true; # see note on other shells below
+     # nix-direnv.enable = true;
     };
 
     starship = {
