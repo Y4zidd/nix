@@ -28,6 +28,7 @@
 
 		    initExtra = ''
       			eval "$(starship init zsh)"
+			eval "$(direnv hook zsh)"
     		    '';
 		#oh-my-zsh = {
 		#	enable = true;

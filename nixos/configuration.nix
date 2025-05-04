@@ -27,8 +27,6 @@
   networking = {
 		hostName = "nixos"; # Define your hostname.
 		networkmanager.enable = true;
-		# wireless.networks."ASRAMA-NET".psk = "Asr4m@ku";
-		# networkmanager.unmanaged = [ "wlan0" ];
 	};
 
 	systemd.services.NetworkManager-wait-online.enable = false;
@@ -55,10 +53,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # zsh active
-  # system.userActivationScripts.zshrc = "touch .zshrc";
-  # users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -89,7 +83,9 @@
     #  thunderbird
     # ];
   };
-
+  
+  programs.nix-ld.enable = true;
+  
   # hyprland active
   programs.hyprland = {
       enable = true;
@@ -169,7 +165,31 @@
 		# tooltambahan
 		alacritty
 		dunst
+		zsh
+		
+		# rustup
+		gcc
+		rustup
+		# glib
+        	gobject-introspection
+  		pango
+		atkmm
+		cairo
+		gdk-pixbuf
   ];
+
+  programs.zsh.enable = true;
+  
+  users.users.yazid = {
+    shell = pkgs.zsh;  # Pastikan paket `zsh` sudah di systemPackages
+  };
+
+  # i hate fckg this country
+  networking.extraHosts =
+  ''
+    151.101.41.140 www.reddit.com
+  '';
+ 
 
   # desktop portals
   xdg.portal.enable = true;

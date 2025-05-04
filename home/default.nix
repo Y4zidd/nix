@@ -9,11 +9,24 @@
 		./alacritty
 		# ./starship/default.nix
 		./dunst
+		#./firefox
+		#./rofi
+		#./cisco
+		./env
   ];
 
   home = {
     username = "yazid";
     homeDirectory = "/home/yazid";
+
+    # rofi and eww configuration
+    file = {
+        ".config/eww".source = ./eww;
+	".config/rofi".source = ./rofi;
+        ".local/share/rofi/themes".source = ./local/share/rofi/themes;
+	".local/bin".source = ./local/bin;
+     };
+     
 		stateVersion = "24.05";
 		packages = with pkgs; [
 			# java
@@ -22,7 +35,9 @@
 			# jdk21_headless
 			# netbeans
 			zsh
+			# stylix
 			# dolphin
+			# ciscoPacketTracer8
 
 			# python
 			# python313Packages.mypy
@@ -113,6 +128,18 @@
       dolphin
       hyprshot
       tree
+      eww
+      gtk3
+      cairo
+      pango
+      atk
+      gdk-pixbuf
+      glib
+      libdbusmenu-gtk3
+      wayland
+      cargo
+      rustc
+      # rustup
 
 			# discord
 			# php
@@ -122,6 +149,7 @@
 			NIXOS_OZONE_WL = "1";
 		};
   };
+
 
   services.hyprpaper = {
 	enable = true;
@@ -135,11 +163,6 @@
 	};
   };
 
-  # users.defaultUserShell = pkgs.zsh;
-
-  programs.zsh.enable = true;
-  
-
   programs = {
     home-manager.enable = true;
     
@@ -148,6 +171,12 @@
       userName = "Y4zidd";
       userEmail = "dahlahg7@gmail.com";
       # init.defaultBranch = "main";
+    };
+    
+    direnv = {
+      enable = true;
+     # enableBashIntegration = true; # see note on other shells below
+     # nix-direnv.enable = true;
     };
 
     starship = {
